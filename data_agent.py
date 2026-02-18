@@ -6,20 +6,20 @@ from langchain_openai import ChatOpenAI
 import pandas as pd
 import os
 
-# 🔑 Set your OpenAI API key
+# Set your OpenAI API key
 os.environ["OPENAI_API_KEY"] = os.getenv("OPENAI_API_KEY")
 
 
-# 📊 Load your dataset
+# Load your dataset
 df = pd.read_csv("data.csv")
 
-# ⚙️ Initialize the model
+# Initialize the model
 llm = ChatOpenAI(model="gpt-4o-mini")
 
-# 🤖 Create the agent
+# Create the agent
 agent = create_pandas_dataframe_agent(llm, df, verbose=True)
 
-# 💬 Ask questions
+# Ask questions
 while True:
     query = input("\nAsk a question about your data (or type 'exit'): ")
     if query.lower() == "exit":
